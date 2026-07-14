@@ -205,9 +205,8 @@
     <h2>Book an intro call</h2>
     <p>Tell me a bit about your student first, then you'll go straight to my calendar to pick a time.</p>
   </div>
-  <form class="intake-form" action="https://formspree.io/f/mzdnblpv" method="POST">
+  <form id="intakeForm" class="intake-form" action="https://formspree.io/f/mzdnblpv" method="POST">
     <input type="hidden" name="_subject" value="New intake — Eckhaus Admissions Consulting">
-    <input type="hidden" name="_next" value="https://calendly.com/eckhausconsulting/introductory-call">
     <div class="frow">
       <div class="field"><label>First name</label><input name="First name" required></div>
       <div class="field"><label>Last name</label><input name="Last name" required></div>
@@ -303,6 +302,32 @@
   </div>
   <div class="fine">© 2026 Eckhaus Admissions Consulting. All rights reserved.</div>
 </div></footer>
+
+<script>
+  (function () {
+    var form = document.getElementById('intakeForm');
+    if (!form) return;
+    var CALENDLY = 'https://calendly.com/eckhausconsulting/introductory-call';
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      var btn = form.querySelector('button[type="submit"]');
+      var label = btn ? btn.textContent : '';
+      if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+      try {
+        var res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) { window.location.href = CALENDLY; return; }
+        throw new Error('Submission failed');
+      } catch (err) {
+        if (btn) { btn.disabled = false; btn.textContent = label; }
+        alert('Sorry — something went wrong sending your info. Please email eckhausconsulting@gmail.com or try again.');
+      }
+    });
+  })();
+</script>
 
 </body>
 </html>
