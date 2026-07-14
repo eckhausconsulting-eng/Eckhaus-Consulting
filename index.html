@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eckhaus Admissions Consulting</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue:#00274c; --blue-2:#001a33; --blue-soft:#0b3a6b;
+    --maize:#ffcb05; --maize-fill:#efb90a; --maize-2:#f6c633; --maize-deep:#d99e00;
+    --ink:#1c2431; --slate:#5a6577; --paper:#fbf8f0; --cream:#f4efe1; --line:#e6dfcd; --white:#fff;
+    --serif:'Fraunces',Georgia,serif; --sans:'Inter',system-ui,sans-serif; --varsity:'Oswald',sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--ink);background:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 40px}
+  a{color:inherit;text-decoration:none}
+  h1,h2,h3{font-family:var(--serif);font-weight:700;letter-spacing:-.02em;line-height:1.05}
+
+  /* brand lockup */
+  .brand{display:flex;align-items:center;gap:20px}
+  .brand .lock{display:flex;flex-direction:column;line-height:1}
+  .brand .name{font-family:var(--varsity);font-weight:700;font-size:22px;letter-spacing:.32em;color:var(--maize)}
+  .brand .svc{font-family:var(--serif);font-weight:700;font-size:37px;color:#fff;margin-top:7px}
+
+  /* HERO */
+  .hero{position:relative;overflow:hidden;color:#fff;background-color:var(--blue-2);
+    background-image:
+      linear-gradient(100deg, rgba(0,20,42,.94) 0%, rgba(0,26,52,.82) 42%, rgba(0,39,76,.55) 100%),
+      url('michigan-lawquad.jpg'),
+      url('https://commons.wikimedia.org/wiki/Special:FilePath/Law_Quad_Arch_At_Michigan_(180695383).jpeg?width=1800');
+    background-size:cover,cover,cover;background-position:center,center 38%,center 38%;background-repeat:no-repeat}
+  .hero .wm{position:absolute;right:-50px;bottom:-90px;width:480px;height:auto;z-index:1;opacity:.12;pointer-events:none}
+  .heronav{position:relative;z-index:3;display:flex;align-items:center;justify-content:space-between;padding:30px 0}
+  .heronav .links{display:flex;align-items:center;gap:30px}
+  .heronav .links a{font-family:var(--varsity);text-transform:uppercase;letter-spacing:.1em;font-size:14.5px;font-weight:600;color:rgba(255,255,255,.85)}
+  .heronav .links a:hover{color:var(--maize)}
+  .hero-inner{position:relative;z-index:3;padding:96px 0 214px}
+  .hero .pill{display:inline-flex;align-items:center;gap:9px;background:var(--maize-fill);color:var(--blue);font-family:var(--varsity);
+    text-transform:uppercase;letter-spacing:.12em;font-size:13px;font-weight:700;padding:8px 16px;border-radius:40px;margin-bottom:26px}
+  .hero h1{font-size:clamp(42px,6vw,78px);color:#fff;max-width:17ch}
+  .hero h1 .u{color:var(--maize)}
+  .hero .sub{font-family:var(--serif);font-weight:500;font-size:clamp(19px,2.1vw,25px);color:rgba(255,255,255,.9);max-width:52ch;margin-top:26px;line-height:1.5}
+
+  /* LOGIN CARDS */
+  .entry{position:relative;z-index:5;margin-top:-46px}
+  .logins{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+  .lcard{position:relative;display:flex;flex-direction:column;min-height:266px;padding:40px 34px 32px;background:var(--blue);
+    border-radius:14px;overflow:hidden;box-shadow:0 26px 50px -24px rgba(0,20,42,.6);transition:.2s ease;color:#fff}
+  .lcard::before{content:"";position:absolute;top:0;left:0;width:100%;height:9px;background:var(--maize-fill);transition:height .2s ease}
+  .lcard::after{content:"";position:absolute;right:-30px;top:-30px;width:110px;height:110px;border-radius:50%;
+    background:rgba(255,203,5,.08);transition:.25s ease}
+  .lcard h3{margin-top:6px;font-size:32px;color:#fff;letter-spacing:-.02em;line-height:1.05}
+  .lcard .hint{margin-top:16px;font-size:15px;color:rgba(255,255,255,.72);line-height:1.5}
+  .lcard .go{margin-top:auto;align-self:flex-start;display:inline-flex;align-items:center;gap:9px;background:var(--maize-fill);color:var(--blue);
+    font-family:var(--varsity);text-transform:uppercase;letter-spacing:.07em;font-weight:700;font-size:15px;padding:13px 22px;border-radius:8px;transition:.18s}
+  .lcard .go .arw{transition:transform .18s}
+  .lcard:hover{transform:translateY(-7px);box-shadow:0 40px 66px -26px rgba(0,20,42,.66)}
+  .lcard:hover::before{height:15px}
+  .lcard:hover::after{transform:scale(1.5)}
+  .lcard:hover .go{background:var(--maize-2)}
+  .lcard:hover .go .arw{transform:translateX(5px)}
+
+  /* BOOK band */
+  .book{display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;margin-top:32px;
+    background:var(--maize-fill);color:var(--blue);border-radius:14px;padding:34px 44px}
+  .book h3{font-size:clamp(26px,3.2vw,36px);color:var(--blue)}
+  .book .bsub{font-family:var(--sans);font-weight:600;font-size:15px;color:rgba(0,39,76,.72);margin-top:6px}
+  .book a{flex-shrink:0;display:inline-flex;align-items:center;gap:10px;background:var(--blue);color:var(--maize);
+    font-family:var(--varsity);text-transform:uppercase;letter-spacing:.07em;font-weight:700;font-size:16px;padding:17px 34px;border-radius:8px;transition:.18s}
+  .book a:hover{background:var(--blue-2)}
+
+  /* INTAKE FORM */
+  .intake{background:var(--cream)}
+  .intake .head{text-align:center;max-width:60ch;margin:0 auto 40px}
+  .intake .head h2{color:var(--blue);font-size:clamp(28px,3.6vw,42px);margin:10px 0 14px}
+  .intake .head p{color:var(--slate);font-size:17px;line-height:1.6}
+  .intake-form{max-width:640px;margin:0 auto;background:var(--white);border:1px solid var(--line);border-top:4px solid var(--maize-fill);border-radius:14px;padding:34px 34px 30px}
+  .frow{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .field{margin-bottom:16px}
+  .field label{display:block;font-family:var(--varsity);text-transform:uppercase;letter-spacing:.08em;font-size:12px;font-weight:600;color:var(--slate);margin-bottom:6px}
+  .field input,.field select,.field textarea{width:100%;border:1px solid var(--line);border-radius:8px;padding:11px 13px;font-family:var(--sans);font-size:15px;color:var(--ink);background:var(--white);outline:none;transition:border-color .15s}
+  .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--blue)}
+  .field textarea{resize:vertical}
+  .intake-form button{width:100%;margin-top:8px;background:var(--blue);color:var(--maize);font-family:var(--varsity);text-transform:uppercase;letter-spacing:.07em;font-weight:700;font-size:16px;padding:15px;border:none;border-radius:8px;cursor:pointer;transition:.18s}
+  .intake-form button:hover{background:var(--blue-2)}
+  .intake-form .fnote{text-align:center;font-size:13px;color:var(--slate);margin-top:12px}
+  @media(max-width:600px){.frow{grid-template-columns:1fr}}
+
+  section.pad{padding:120px 0}
+  .eyebrow{font-family:var(--varsity);text-transform:uppercase;letter-spacing:.16em;font-size:14px;font-weight:600;color:var(--maize-deep)}
+  .lead{display:flex;justify-content:space-between;align-items:baseline;gap:18px;flex-wrap:wrap;margin-bottom:40px}
+  .lead h2{font-size:clamp(26px,3.4vw,40px);color:var(--blue)}
+  .stub{display:inline-block;font-family:var(--varsity);text-transform:uppercase;font-size:12px;letter-spacing:.12em;font-weight:600;color:var(--maize-deep);border:1.5px solid var(--maize-fill);padding:4px 12px;border-radius:20px;margin-left:14px;vertical-align:middle}
+  .sublabel{font-family:var(--varsity);text-transform:uppercase;letter-spacing:.14em;font-size:12.5px;font-weight:600;color:var(--slate)}
+
+  /* ABOUT */
+  .about{background:var(--cream)}
+  .about-grid{display:grid;grid-template-columns:330px 1fr;gap:68px;align-items:center}
+  .frame{position:relative}
+  .frame::after{content:"";position:absolute;inset:18px -18px -18px 18px;border:3px solid var(--maize-fill);border-radius:12px;z-index:0}
+  .portrait{position:relative;z-index:1;aspect-ratio:4/5;border-radius:12px;background:linear-gradient(160deg,#dfe4ec,#c6cddb);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:#8a97ad;font-size:13px;font-style:italic}
+  .about h2{font-size:clamp(30px,3.6vw,44px);color:var(--blue);margin:12px 0 24px;max-width:16ch}
+  .about-body p{font-size:17px;color:var(--ink);line-height:1.78;margin-bottom:18px}
+  .about-body p:first-of-type::first-letter{font-family:var(--serif);font-size:64px;font-weight:700;color:var(--maize-deep);float:left;line-height:.78;padding:8px 14px 0 0}
+
+  /* ACCEPTANCES */
+  .results{background:var(--white);text-align:center}
+  .results h2{color:var(--blue);font-size:clamp(28px,3.6vw,42px);margin:12px 0 20px}
+  .results .intro{max-width:56ch;margin:0 auto 44px;font-size:17px;line-height:1.7;color:var(--slate)}
+  .schools{max-width:920px;margin:0 auto;line-height:2.2;font-size:16px;font-weight:600;color:var(--blue)}
+  .schools span{white-space:nowrap}
+  .schools .dot{color:var(--maize-deep);margin:0 10px;font-weight:700}
+  .results .note{margin-top:38px;font-family:var(--varsity);text-transform:uppercase;letter-spacing:.14em;font-size:12px;color:#a99c80}
+
+  /* NEWS & KEY DATES */
+  .newswrap{background:var(--cream)}
+  .newsgrid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--white)}
+  .panel{padding:34px 36px}
+  .panel + .panel{border-left:1px solid var(--line)}
+  .panel h3{font-size:19px;color:var(--blue);margin-bottom:20px}
+  .drow2{display:flex;gap:16px;align-items:flex-start;padding:15px 0;border-top:1px solid var(--line)}
+  .drow2:first-of-type{border-top:none;padding-top:0}
+  .dchip{flex-shrink:0;text-align:center;background:var(--blue);color:#fff;padding:7px 11px;min-width:56px;border-radius:8px}
+  .dchip .m{font-family:var(--varsity);font-size:11px;font-weight:600;letter-spacing:.08em;color:var(--maize)}
+  .dchip .d{font-family:var(--serif);font-size:21px;font-weight:700;line-height:1}
+  .drow2 .t{font-size:15px;color:var(--ink);font-weight:600}
+  .drow2 .s{font-size:13.5px;color:var(--slate)}
+  .nrow{padding:16px 0;border-top:1px solid var(--line)}
+  .nrow:first-of-type{border-top:none;padding-top:0}
+  .nrow .t{font-size:16px;color:var(--blue);font-weight:600}
+  .nrow .s{font-size:13.5px;color:var(--slate);margin-top:3px}
+
+  /* BLOG */
+  .posts{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+  .post{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--white);transition:.18s}
+  .post:hover{transform:translateY(-4px);box-shadow:0 22px 44px -22px rgba(0,20,42,.28)}
+  .post .img{aspect-ratio:16/10;background:linear-gradient(150deg,#dfe4ec,#c8cfdb)}
+  .post .body{padding:24px 26px 28px}
+  .post .cat{font-family:var(--varsity);text-transform:uppercase;font-size:12px;font-weight:600;letter-spacing:.1em;color:var(--maize-deep);margin-bottom:10px}
+  .post h3{font-size:20px;color:var(--blue);line-height:1.2;margin-bottom:9px}
+  .post p{font-size:14.5px;color:var(--slate);line-height:1.55}
+
+  /* FOOTER */
+  footer{background:var(--blue);color:rgba(255,255,255,.66);padding:60px 0 40px;font-size:14px}
+  .foot{display:flex;justify-content:space-between;gap:36px;flex-wrap:wrap;align-items:flex-start}
+  .foot a{color:rgba(255,255,255,.66)}.foot a:hover{color:var(--maize)}
+  .foot .brand .svc{font-size:22px}.foot .brand .name{font-size:15px}
+  .foot .col b{display:block;color:#fff;font-family:var(--varsity);text-transform:uppercase;letter-spacing:.1em;margin-bottom:13px;font-size:13px}
+  .foot .col a{display:block;margin-bottom:9px}
+  .fine{margin-top:44px;padding-top:24px;border-top:1px solid rgba(255,255,255,.14);font-size:12.5px;color:rgba(255,255,255,.42)}
+
+  @media(max-width:860px){.logins{grid-template-columns:1fr}.entry{margin-top:-56px}.hero .wm{width:300px}}
+  @media(max-width:760px){.about-grid,.newsgrid{grid-template-columns:1fr}.panel + .panel{border-left:none;border-top:1px solid var(--line)}.frame{max-width:280px}.heronav .links{display:none}.book{flex-direction:column;align-items:flex-start}.brand .svc{font-size:24px}.brand .name{font-size:15px}}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <svg class="wm" viewBox="-4 -4 120 128" xmlns="http://www.w3.org/2000/svg"><path d="M8 10 H96 V6 H104 V34 H96 V30 H42 V50 H82 V46 H90 V74 H82 V70 H42 V90 H96 V86 H104 V114 H96 V110 H8 V94 H16 V26 H8 Z" fill="none" stroke="#ffcb05" stroke-width="2.5" stroke-linejoin="miter"/></svg>
+  <div class="wrap heronav">
+    <a href="#" class="brand">
+      <svg width="90" height="96" viewBox="-4 -4 120 128" xmlns="http://www.w3.org/2000/svg" aria-label="Eckhaus">
+        <path d="M8 10 H96 V6 H104 V34 H96 V30 H42 V50 H82 V46 H90 V74 H82 V70 H42 V90 H96 V86 H104 V114 H96 V110 H8 V94 H16 V26 H8 Z" fill="none" stroke="#ffffff" stroke-width="9" stroke-linejoin="miter"/>
+        <path d="M8 10 H96 V6 H104 V34 H96 V30 H42 V50 H82 V46 H90 V74 H82 V70 H42 V90 H96 V86 H104 V114 H96 V110 H8 V94 H16 V26 H8 Z" fill="none" stroke="#ffcb05" stroke-width="6" stroke-linejoin="miter"/>
+        <path d="M8 10 H96 V6 H104 V34 H96 V30 H42 V50 H82 V46 H90 V74 H82 V70 H42 V90 H96 V86 H104 V114 H96 V110 H8 V94 H16 V26 H8 Z" fill="#00274c" stroke-linejoin="miter"/>
+      </svg>
+      <span class="lock"><span class="name">ECKHAUS</span><span class="svc">Admissions Consulting</span></span>
+    </a>
+    <div class="links"><a href="#about">About</a><a href="#results">Results</a><a href="#news">News</a><a href="#book">Book a call</a></div>
+  </div>
+  <div class="wrap hero-inner">
+    <h1>Applying to college doesn't have to be <span class="u">stressful.</span></h1>
+    <p class="sub">I inspire students to build meaningful experiences, explore their intellectual curiosity, and tell their authentic story.</p>
+  </div>
+</section>
+
+<div class="entry"><div class="wrap">
+  <div class="logins">
+    <a href="https://my.eckhausconsulting.com/" class="lcard">
+      <h3>College Admissions</h3>
+      <div class="hint">Your list, essays, deadlines, and plan</div>
+      <div class="go">Log in <span class="arw">→</span></div>
+    </a>
+    <a href="#" class="lcard">
+      <h3>Test Prep</h3>
+      <div class="hint">Progress, practice, and your prep tools</div>
+      <div class="go">Log in <span class="arw">→</span></div>
+    </a>
+    <a href="#" class="lcard">
+      <h3>Research &amp; Passion Projects</h3>
+      <div class="hint">Programs, timelines, and independent work</div>
+      <div class="go">Log in <span class="arw">→</span></div>
+    </a>
+  </div>
+</div></div>
+
+<section class="pad intake" id="book"><div class="wrap">
+  <div class="head">
+    <div class="eyebrow">New to Eckhaus</div>
+    <h2>Book an intro call</h2>
+    <p>Tell me a bit about your student first, then you'll go straight to my calendar to pick a time.</p>
+  </div>
+  <form class="intake-form" action="https://formspree.io/f/mzdnblpv" method="POST">
+    <input type="hidden" name="_subject" value="New intake — Eckhaus Admissions Consulting">
+    <input type="hidden" name="_next" value="https://calendly.com/eckhausconsulting/introductory-call">
+    <div class="frow">
+      <div class="field"><label>First name</label><input name="First name" required></div>
+      <div class="field"><label>Last name</label><input name="Last name" required></div>
+    </div>
+    <div class="frow">
+      <div class="field"><label>Phone</label><input type="tel" name="Phone" required></div>
+      <div class="field"><label>Email</label><input type="email" name="email" required></div>
+    </div>
+    <div class="field"><label>Student's name</label><input name="Student's name" required></div>
+    <div class="frow">
+      <div class="field"><label>Graduation year</label>
+        <select name="Graduation year">
+          <option value="">Select…</option>
+          <option>2026</option><option>2027</option><option>2028</option>
+          <option>2029</option><option>2030</option><option>2031</option>
+          <option>Not sure yet</option>
+        </select>
+      </div>
+      <div class="field"><label>Student's school</label><input name="Student's school"></div>
+    </div>
+    <div class="field"><label>Referred by</label><input name="Referred by" placeholder="Who referred you, or how you found me"></div>
+    <div class="field"><label>Anything else you want me to know?</label><textarea name="Anything else" rows="3"></textarea></div>
+    <button type="submit">Submit &amp; find a time →</button>
+    <p class="fnote">After you submit, you'll be taken to my calendar to choose a time.</p>
+  </form>
+</div></section>
+
+<section class="pad about" id="about"><div class="wrap">
+  <div class="about-grid">
+    <div class="frame"><div class="portrait">Portrait of Josh</div></div>
+    <div>
+      <div class="eyebrow">About Josh</div>
+      <div class="about-body">
+        <p>For more than two decades, Josh Eckhaus has served as a mentor, advocate, strategist, diplomat, and amateur therapist to families navigating the college admissions process. He's worked with families around the world, building a full-spectrum admissions program and helping applicants find their perfect fit at a wide range of colleges and universities.</p>
+        <p>Josh genuinely loves the individuality, authenticity, and creativity inherent in the college application process. As a writer, a former actor, an academic, and a lifelong musician, he is comfortable working with everyone, from painters and poets to scientists and soccer players.</p>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<section class="pad results" id="results"><div class="wrap">
+  <div class="eyebrow" style="text-align:center">Classes of 2024–2026</div>
+  <h2>Where students have landed</h2>
+  <p class="intro">Every student is after the right fit, not one dream school. Recent acceptances span big public universities, small liberal arts colleges, and specialized programs — including:</p>
+  <div class="schools">
+    <span>American University</span> <b class="dot">·</b> <span>Auburn</span> <b class="dot">·</b> <span>Boston College</span> <b class="dot">·</b> <span>Boston University</span> <b class="dot">·</b> <span>Brown</span> <b class="dot">·</b> <span>Cal Poly SLO</span> <b class="dot">·</b> <span>Clemson</span> <b class="dot">·</b> <span>Colby College</span> <b class="dot">·</b> <span>Colgate</span> <b class="dot">·</b> <span>Cornell</span> <b class="dot">·</b> <span>Dartmouth</span> <b class="dot">·</b> <span>Duke</span> <b class="dot">·</b> <span>Emory</span> <b class="dot">·</b> <span>Fordham</span> <b class="dot">·</b> <span>George Washington</span> <b class="dot">·</b> <span>Georgetown</span> <b class="dot">·</b> <span>Indiana (Kelley)</span> <b class="dot">·</b> <span>Kenyon College</span> <b class="dot">·</b> <span>Lehigh</span> <b class="dot">·</b> <span>Lewis &amp; Clark</span> <b class="dot">·</b> <span>Macalester</span> <b class="dot">·</b> <span>Middlebury</span> <b class="dot">·</b> <span>New York University</span> <b class="dot">·</b> <span>Northeastern</span> <b class="dot">·</b> <span>Northwestern</span> <b class="dot">·</b> <span>Notre Dame</span> <b class="dot">·</b> <span>Ohio State</span> <b class="dot">·</b> <span>Ohio Wesleyan</span> <b class="dot">·</b> <span>Penn State</span> <b class="dot">·</b> <span>Princeton</span> <b class="dot">·</b> <span>San Diego State</span> <b class="dot">·</b> <span>Santa Clara</span> <b class="dot">·</b> <span>Scripps College</span> <b class="dot">·</b> <span>Southern Methodist</span> <b class="dot">·</b> <span>St. Andrews</span> <b class="dot">·</b> <span>SUNY Binghamton</span> <b class="dot">·</b> <span>Syracuse</span> <b class="dot">·</b> <span>Texas Christian</span> <b class="dot">·</b> <span>Tufts</span> <b class="dot">·</b> <span>Tulane</span> <b class="dot">·</b> <span>UC Berkeley</span> <b class="dot">·</b> <span>UC Davis</span> <b class="dot">·</b> <span>UCLA</span> <b class="dot">·</b> <span>UC San Diego</span> <b class="dot">·</b> <span>UC Santa Barbara</span> <b class="dot">·</b> <span>UC Santa Cruz</span> <b class="dot">·</b> <span>University of Arizona</span> <b class="dot">·</b> <span>University of Chicago</span> <b class="dot">·</b> <span>University of Colorado</span> <b class="dot">·</b> <span>University of Florida</span> <b class="dot">·</b> <span>University of Georgia</span> <b class="dot">·</b> <span>University of Illinois</span> <b class="dot">·</b> <span>University of Maryland</span> <b class="dot">·</b> <span>University of Miami</span> <b class="dot">·</b> <span>University of Michigan</span> <b class="dot">·</b> <span>UNC Chapel Hill</span> <b class="dot">·</b> <span>University of Oregon</span> <b class="dot">·</b> <span>University of Pennsylvania</span> <b class="dot">·</b> <span>USC</span> <b class="dot">·</b> <span>University of Tennessee</span> <b class="dot">·</b> <span>UT Austin</span> <b class="dot">·</b> <span>University of Virginia</span> <b class="dot">·</b> <span>University of Washington</span> <b class="dot">·</b> <span>University of Wisconsin</span> <b class="dot">·</b> <span>Vassar College</span> <b class="dot">·</b> <span>Villanova</span> <b class="dot">·</b> <span>WashU in St. Louis</span> <b class="dot">·</b> <span>William &amp; Mary</span> <b class="dot">·</b> <span>Yale</span>
+  </div>
+  <div class="note">A selection from the last three graduating classes</div>
+</div></section>
+
+<section class="pad newswrap" id="news"><div class="wrap">
+  <div class="lead"><h2>News &amp; key dates <span class="stub">Optional · future</span></h2><span class="sublabel">Sample layout</span></div>
+  <div class="newsgrid">
+    <div class="panel">
+      <h3>Key dates</h3>
+      <div class="drow2"><div class="dchip"><div class="m">NOV</div><div class="d">1</div></div><div><div class="t">Early Action / Early Decision deadlines</div><div class="s">Most EA and ED applications due.</div></div></div>
+      <div class="drow2"><div class="dchip"><div class="m">DEC</div><div class="d">5</div></div><div><div class="t">December SAT</div><div class="s">Registration deadline Nov 20.</div></div></div>
+      <div class="drow2"><div class="dchip"><div class="m">JAN</div><div class="d">1</div></div><div><div class="t">Regular Decision deadlines</div><div class="s">Bulk of RD applications due.</div></div></div>
+    </div>
+    <div class="panel">
+      <h3>News</h3>
+      <div class="nrow"><div class="t">Summer program applications are opening</div><div class="s">Priority deadlines for many programs land in December–February.</div></div>
+      <div class="nrow"><div class="t">The enhanced ACT — what changed</div><div class="s">A quick primer on the new format for this year's testers.</div></div>
+      <div class="nrow"><div class="t">Building a passion project this fall</div><div class="s">A few starting points for independent research.</div></div>
+    </div>
+  </div>
+</div></section>
+
+<section class="pad"><div class="wrap">
+  <div class="lead"><h2>From the blog <span class="stub">Optional · future</span></h2><span class="sublabel">Sample layout</span></div>
+  <div class="posts">
+    <a href="#" class="post"><div class="img"></div><div class="body"><div class="cat">Essays</div><h3>How to find the story only you can tell</h3><p>A calmer way into the personal statement — starting from what matters to you.</p></div></a>
+    <a href="#" class="post"><div class="img"></div><div class="body"><div class="cat">Testing</div><h3>SAT or ACT — how to decide</h3><p>A short, practical framework for choosing the right test and a plan.</p></div></a>
+    <a href="#" class="post"><div class="img"></div><div class="body"><div class="cat">Strategy</div><h3>Building a balanced college list</h3><p>Reaches, targets, and likelies — and why fit beats prestige.</p></div></a>
+  </div>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="foot">
+    <div class="col" style="max-width:320px">
+      <div class="brand">
+        <svg width="60" height="64" viewBox="-4 -4 120 128" xmlns="http://www.w3.org/2000/svg" aria-label="Eckhaus">
+          <path d="M8 10 H96 V6 H104 V34 H96 V30 H42 V50 H82 V46 H90 V74 H82 V70 H42 V90 H96 V86 H104 V114 H96 V110 H8 V94 H16 V26 H8 Z" fill="none" stroke="#ffffff" stroke-width="9" stroke-linejoin="miter"/>
+          <path d="M8 10 H96 V6 H104 V34 H96 V30 H42 V50 H82 V46 H90 V74 H82 V70 H42 V90 H96 V86 H104 V114 H96 V110 H8 V94 H16 V26 H8 Z" fill="none" stroke="#ffcb05" stroke-width="6" stroke-linejoin="miter"/>
+          <path d="M8 10 H96 V6 H104 V34 H96 V30 H42 V50 H82 V46 H90 V74 H82 V70 H42 V90 H96 V86 H104 V114 H96 V110 H8 V94 H16 V26 H8 Z" fill="#00274c" stroke-linejoin="miter"/>
+        </svg>
+        <span class="lock"><span class="name">ECKHAUS</span><span class="svc">Admissions Consulting</span></span>
+      </div>
+      <p style="margin-top:16px;font-size:13.5px;color:rgba(255,255,255,.58)">A calmer, more personal path through college admissions.</p>
+    </div>
+    <div class="col"><b>Log in</b><a href="https://my.eckhausconsulting.com/">College Admissions</a><a href="#">Test Prep</a><a href="#">Research &amp; Passion Projects</a></div>
+    <div class="col"><b>Connect</b><a href="mailto:eckhausconsulting@gmail.com">eckhausconsulting@gmail.com</a><a href="#about">About Josh</a><a href="#results">Results</a></div>
+  </div>
+  <div class="fine">© 2026 Eckhaus Admissions Consulting. All rights reserved.</div>
+</div></footer>
+
+</body>
+</html>
