@@ -206,7 +206,7 @@
 <section class="pad intake" id="book"><div class="wrap">
   <div class="head">
     <h2>Book an intro call</h2>
-    <p>Tell me a bit about your student. I read every inquiry myself and reply personally, usually within a day or two.</p>
+    <p>Tell me a bit about your student and I'll be in touch.</p>
   </div>
   <form id="intakeForm" class="intake-form" action="https://formspree.io/f/mzdnblpv" method="POST">
     <input type="hidden" name="_subject" value="New intake — Eckhaus Admissions Consulting">
@@ -233,7 +233,6 @@
     <div class="field"><label>Referred by</label><input name="Referred by" placeholder="Who referred you, or how you found me"></div>
     <div class="field"><label>Anything else you want me to know?</label><textarea name="Anything else" rows="3"></textarea></div>
     <button type="submit">Send it over →</button>
-    <p class="fnote">You'll hear back from me by email with next steps.</p>
   </form>
 </div></section>
 
@@ -344,7 +343,7 @@
           body: new FormData(form),
           headers: { 'Accept': 'application/json' }
         });
-        if (res.ok) { form.innerHTML = "<p style=\"text-align:center;font-size:16.5px;line-height:1.6;margin:0\">Got it, thank you. I read every one of these myself, and you'll hear from me by email soon.</p>"; return; }
+        if (res.ok) { form.innerHTML = "<p style=\"text-align:center;font-size:16.5px;line-height:1.6;margin:0\">Got it, thank you. I'll be in touch soon.</p>"; return; }
         throw new Error('Submission failed');
       } catch (err) {
         if (btn) { btn.disabled = false; btn.textContent = label; }
