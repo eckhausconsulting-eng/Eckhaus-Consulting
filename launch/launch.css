@@ -330,6 +330,9 @@ footer{background:var(--blue);color:rgba(255,255,255,.66);padding:60px 0 40px;fo
   background:linear-gradient(180deg,#fff 0,rgba(255,255,255,0) 60px,
              rgba(255,255,255,0) calc(100% - 170px),#fff 100%)}
 .bg-faint>.wrap{position:relative}
+/* Canvas content rides above the feather overlay: the fade belongs to the image, never the
+   text (Josh, 2026-08-29: step 6 was washing out at the bottom). */
+.bigtex>section{position:relative}
 
 /* The big canvases can afford a long, luxurious dissolve; the short top textures keep a tight
    feather so their text never sits in fog. */
