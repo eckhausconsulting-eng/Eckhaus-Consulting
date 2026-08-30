@@ -283,7 +283,7 @@ footer{background:var(--blue);color:rgba(255,255,255,.66);padding:60px 0 40px;fo
 /* Faint imagery behind text sections: the wash is an inset box-shadow spread over the whole
    element — a single paint layer, replacing the ::before/::after overlays that left glitch
    bands at section seams on the deployed preview (Josh, 2026-08-29). */
-.bg-faint{background-size:cover;background-position:center;
+.bg-faint{background-size:cover;background-position:center;background-repeat:no-repeat;background-color:var(--white);
   box-shadow:inset 0 0 0 100vmax rgba(255,255,255,.83)}
 .bg-faint.alt{box-shadow:inset 0 0 0 100vmax rgba(244,239,229,.84)}
 .bg-faint.tint{box-shadow:inset 0 0 0 100vmax rgba(226,235,246,.8)}
