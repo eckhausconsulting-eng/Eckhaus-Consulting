@@ -146,6 +146,13 @@
 
   /* NEWS & KEY DATES */
   .newswrap{background:var(--white)}
+  /* Texture system from the Launch pages (Josh, 2026-08-29: homepage matches the vibe). */
+  .bgtex{position:relative;background-size:cover;background-position:center;background-repeat:no-repeat;
+    background-color:var(--white);box-shadow:inset 0 0 0 100vmax rgba(255,255,255,.83)}
+  .bgtex.tint{box-shadow:inset 0 0 0 100vmax rgba(226,235,246,.845)}
+  .bgtex::before{content:"";position:absolute;inset:0;pointer-events:none;
+    background:linear-gradient(180deg,#fff 0,rgba(255,255,255,0) 60px,rgba(255,255,255,0) calc(100% - 170px),#fff 100%)}
+  .bgtex>.wrap{position:relative}
   .newsgrid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--white)}
   .panel{padding:34px 36px}
   .panel + .panel{border-left:1px solid var(--line)}
@@ -214,7 +221,7 @@
 </section>
 
 
-<section class="pad" id="launch"><div class="wrap">
+<section class="pad bgtex" id="launch" style="background-image:url('launch/img/washu-1.jpg')"><div class="wrap">
   <div class="launch-head">
     <div class="eyebrow">Beyond admissions</div>
     <h2>Launch</h2>
@@ -289,7 +296,7 @@
 </div></section>
 
 
-<section class="pad newswrap" id="news"><div class="wrap">
+<section class="pad newswrap bgtex tint" id="news" style="background-image:url('launch/img/quad-blossoms.jpg')"><div class="wrap">
   <div class="lead"><h2>News &amp; key dates</h2></div>
   <div class="newsgrid">
     <div class="panel">
