@@ -342,3 +342,8 @@ footer{background:var(--blue);color:rgba(255,255,255,.66);padding:60px 0 40px;fo
 /* Icon tiles retired (Josh, 2026-08-29): the glyphs were generic filler. Feature rows are
    text-first; titles + hairlines carry the structure. */
 .feat .f .ic{display:none}
+
+/* The maize border vibe (Josh, 2026-08-29): panels take the card language's maize top edge,
+   loose feature rows take a maize left tick where the icon tiles used to anchor them. */
+.split .feat{border-top:4px solid var(--maize-fill)}
+.feat:not(.split .feat) .f{border-left:3px solid var(--maize-fill);padding-left:16px}
