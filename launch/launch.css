@@ -338,3 +338,7 @@ footer{background:var(--blue);color:rgba(255,255,255,.66);padding:60px 0 40px;fo
    feather so their text never sits in fog. */
 .bigtex::before{background:linear-gradient(180deg,#fff 0,rgba(255,255,255,0) 240px,
   rgba(255,255,255,0) calc(100% - 240px),#fff 100%)}
+
+/* Icon tiles retired (Josh, 2026-08-29): the glyphs were generic filler. Feature rows are
+   text-first; titles + hairlines carry the structure. */
+.feat .f .ic{display:none}
