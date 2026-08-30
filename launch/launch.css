@@ -320,3 +320,12 @@ footer{background:var(--blue);color:rgba(255,255,255,.66);padding:60px 0 40px;fo
 
 /* Vivid variant: for images that ARE the point (the scantron): much lighter wash, no settle
    gradient, image clearly recognizable while text stays on the readable side. */
+
+/* Flow between sections (Josh, 2026-08-29): textured sections feather to white at both edges
+   instead of chopping from image to flat color, and their neighbors are white so the fade
+   lands invisibly. */
+.bg-faint{position:relative}
+.bg-faint::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,#fff 0,rgba(255,255,255,0) 110px,
+             rgba(255,255,255,0) calc(100% - 110px),#fff 100%)}
+.bg-faint>.wrap{position:relative}
