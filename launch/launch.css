@@ -328,10 +328,10 @@ footer{background:var(--blue);color:rgba(255,255,255,.66);padding:60px 0 40px;fo
 .bg-faint{position:relative}
 .bg-faint::before{content:"";position:absolute;inset:0;pointer-events:none;
   background:linear-gradient(180deg,#fff 0,rgba(255,255,255,0) 60px,
-             rgba(255,255,255,0) calc(100% - 60px),#fff 100%)}
+             rgba(255,255,255,0) calc(100% - 170px),#fff 100%)}
 .bg-faint>.wrap{position:relative}
 
 /* The big canvases can afford a long, luxurious dissolve; the short top textures keep a tight
    feather so their text never sits in fog. */
-.bigtex::before{background:linear-gradient(180deg,#fff 0,rgba(255,255,255,0) 190px,
-  rgba(255,255,255,0) calc(100% - 190px),#fff 100%)}
+.bigtex::before{background:linear-gradient(180deg,#fff 0,rgba(255,255,255,0) 240px,
+  rgba(255,255,255,0) calc(100% - 240px),#fff 100%)}
