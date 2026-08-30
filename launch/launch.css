@@ -88,7 +88,8 @@ p,li,.hint,.ideal,.bsub,.note,.prog p,.case .blk p,.feat .f p,.step p,.whyrow .t
 /* SECTIONS */
 section.pad{padding:88px 0}
 section.pad.sm{padding:74px 0}
-.alt{background:var(--cream);border-top:1px solid rgba(0,39,76,.08);border-bottom:1px solid rgba(0,39,76,.08)}
+/* Cream section background retired (Josh, 2026-08-29: pages read better all white). */
+.alt{background:var(--white)}
 .eyebrow{font-family:var(--varsity);text-transform:uppercase;letter-spacing:.13em;font-size:18px;font-weight:700;color:var(--maize-deep)}
 .lead h2{font-size:clamp(28px,3.6vw,42px);color:var(--blue);margin:12px 0 18px}
 .lead p{font-size:17.5px;color:var(--ink);line-height:1.78;max-width:64ch}
