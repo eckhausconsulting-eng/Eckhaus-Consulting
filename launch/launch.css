@@ -326,6 +326,6 @@ footer{background:var(--blue);color:rgba(255,255,255,.66);padding:60px 0 40px;fo
    lands invisibly. */
 .bg-faint{position:relative}
 .bg-faint::before{content:"";position:absolute;inset:0;pointer-events:none;
-  background:linear-gradient(180deg,#fff 0,rgba(255,255,255,0) 110px,
-             rgba(255,255,255,0) calc(100% - 110px),#fff 100%)}
+  background:linear-gradient(180deg,#fff 0,rgba(255,255,255,0) 46px,
+             rgba(255,255,255,0) calc(100% - 46px),#fff 100%)}
 .bg-faint>.wrap{position:relative}
