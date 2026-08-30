@@ -286,8 +286,8 @@ footer{background:var(--blue);color:rgba(255,255,255,.66);padding:60px 0 40px;fo
 .bg-faint{background-size:cover;background-position:center;
   box-shadow:inset 0 0 0 100vmax rgba(255,255,255,.83)}
 .bg-faint.alt{box-shadow:inset 0 0 0 100vmax rgba(244,239,229,.84)}
-.bg-faint.tint{box-shadow:inset 0 0 0 100vmax rgba(226,235,246,.86)}
-.bg-faint.vivid{box-shadow:inset 0 0 0 100vmax rgba(255,255,255,.72)}
+.bg-faint.tint{box-shadow:inset 0 0 0 100vmax rgba(226,235,246,.8)}
+.bg-faint.vivid{box-shadow:inset 0 0 0 100vmax rgba(213,226,241,.6)}
 
 /* What-is-Launch as an immersive image section (Josh, 2026-08-29): the quad runs full size with
    the copy overlaid on the same navy gradient language as the heroes, so it reads as a moment,
