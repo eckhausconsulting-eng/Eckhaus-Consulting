@@ -1,0 +1,349 @@
+/* ===== Launch / Eckhaus shared stylesheet ===== */
+:root{
+  --blue:#00274c; --blue-2:#001a33; --blue-soft:#0b3a6b;
+  --maize:#ffcb05; --maize-fill:#efb90a; --maize-2:#f6c633; --maize-deep:#d99e00;
+  --ink:#1c2431; --slate:#5a6577; --paper:#fbf8f0; --cream:#f4efe1; --line:#e6dfcd; --white:#fff;
+  --serif:'Fraunces',Georgia,serif; --sans:'Libre Franklin',system-ui,sans-serif; --varsity:'Oswald',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:var(--white);line-height:1.6;-webkit-font-smoothing:antialiased}
+/* 1140px was most of the side-void on modern screens (Josh, 2026-08-29). */
+/* Scale with the window: ~94% of the viewport up to 1680px, so wide screens actually get
+   used instead of framing a fixed strip (Josh: 'you moved it out like 2-5% tops'). Text
+   blocks keep their own ch-based measure caps, so prose stays readable at any width. */
+.wrap{max-width:min(1680px,94vw);margin:0 auto;padding:0 40px}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--sans);font-weight:800;letter-spacing:-.02em;line-height:1.08;text-wrap:balance}
+.hero .sub,.sec-h p,.lead p,.callout h3,.callout p,.book h3,.whycard h3,.hstats .st .l,.feat .f b,.step b,.whyrow .t b,.prog h3,.book .bsub{text-wrap:balance}
+p,li,.hint,.ideal,.bsub,.note,.prog p,.case .blk p,.feat .f p,.step p,.whyrow .t p{text-wrap:pretty}
+
+/* brand lockup */
+.brand{display:flex;align-items:center;gap:20px}
+.brand .lock{display:flex;flex-direction:column;line-height:1}
+.brand .name{font-family:var(--varsity);font-weight:700;font-size:22px;letter-spacing:.32em;color:var(--maize)}
+.brand .svc{font-family:var(--serif);font-weight:700;font-size:37px;color:#fff;margin-top:7px}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;color:#fff;background-color:var(--blue-2);
+  /* Same Law Quad archway as the homepage hero (Josh, 2026-08-29), gradient a touch stronger
+     since these heroes are shorter and carry breadcrumbs + stats over the image. */
+  background-image:
+    linear-gradient(100deg, rgba(0,20,42,.95) 0%, rgba(0,26,52,.86) 44%, rgba(0,39,76,.62) 100%),
+    url('/michigan-lawquad.jpg'),
+    url('https://commons.wikimedia.org/wiki/Special:FilePath/Law_Quad_Arch_At_Michigan_(180695383).jpeg?width=1800');
+  background-size:cover,cover,cover;background-position:center 38%,center 38%,center 38%}
+.hero .wm{position:absolute;right:-50px;bottom:-90px;width:480px;height:auto;z-index:1;opacity:.10;pointer-events:none}
+.heronav{position:relative;z-index:3;display:flex;align-items:center;justify-content:space-between;padding:30px 0}
+.heronav .links{display:flex;align-items:center;gap:30px}
+.heronav .links a{font-family:var(--varsity);text-transform:uppercase;letter-spacing:.1em;font-size:14.5px;font-weight:600;color:rgba(255,255,255,.85)}
+.heronav .links a:hover,.heronav .links a.on{color:var(--maize)}
+.hero-inner{position:relative;z-index:3;padding:80px 0 118px}
+.hero.short .hero-inner{padding:58px 0 92px}
+.hero .pill{display:inline-flex;align-items:center;gap:9px;background:var(--maize-fill);color:var(--blue);font-family:var(--varsity);
+  text-transform:uppercase;letter-spacing:.12em;font-size:13px;font-weight:700;padding:8px 16px;border-radius:40px;margin-bottom:24px}
+.hero h1{font-size:clamp(40px,5.6vw,72px);color:#fff;max-width:18ch}
+.hero.short h1{font-size:clamp(36px,4.8vw,60px)}
+.hero h1 .u{color:var(--maize)}
+.hero .sub{font-family:var(--serif);font-weight:500;font-size:clamp(19px,2.1vw,25px);color:rgba(255,255,255,.9);max-width:58ch;margin-top:24px;line-height:1.5}
+.crumbs{position:relative;z-index:3;margin-bottom:22px;font-family:var(--varsity);text-transform:uppercase;letter-spacing:.11em;font-size:16px;font-weight:700;color:rgba(255,255,255,.78)}
+.crumbs a{color:rgba(255,255,255,.6)}.crumbs a:hover{color:var(--maize)}
+.crumbs .sep{margin:0 9px;color:rgba(255,255,255,.35)}
+
+/* stat strip in hero */
+.hstats{position:relative;z-index:3;display:flex;flex-wrap:wrap;gap:40px;margin-top:38px}
+.hstats .st .n{font-family:var(--serif);font-weight:700;font-size:36px;color:var(--maize)}
+.hstats .st .l{font-size:15px;color:rgba(255,255,255,.78);margin-top:4px;max-width:24ch;line-height:1.45}
+
+/* OFFERING CARDS (hub) */
+/* Clean white shelf between the navy cards and the navy What-is-Launch image below
+   (Josh, 2026-08-29: separation from the boxes above). */
+.entry{position:relative;z-index:5;margin-top:0;padding:96px 0;background:var(--white)}
+.offers{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;grid-auto-rows:1fr}
+.ocard{position:relative;display:flex;flex-direction:column;min-height:270px;padding:40px 38px 36px;background:var(--blue);
+  border-radius:14px;overflow:hidden;box-shadow:0 26px 50px -24px rgba(0,20,42,.6);transition:.2s ease;color:#fff}
+.ocard::before{content:"";position:absolute;top:0;left:0;width:100%;height:9px;background:var(--maize-fill);transition:height .2s ease}
+.ocard::after{content:"";position:absolute;right:-30px;top:-30px;width:110px;height:110px;border-radius:50%;background:rgba(255,203,5,.08);transition:.25s ease}
+.ocard .kick{font-family:var(--varsity);text-transform:uppercase;letter-spacing:.06em;font-size:16px;font-weight:700;color:var(--maize);margin-bottom:12px}
+.ocard h3{font-size:27px;color:#fff;letter-spacing:-.02em;line-height:1.12;text-wrap:balance;min-height:2.24em}
+.ocard .hint{margin-top:12px;font-size:15px;color:rgba(255,255,255,.72);line-height:1.55;text-wrap:pretty}
+/* Tags hug the bottom above the button so every card shares one rhythm: title, hint, then
+   tags + Explore anchored together (Josh, 2026-08-28: the grid read as haphazard). */
+.ocard .tags{margin-top:auto;padding-top:22px;display:flex;flex-wrap:wrap;gap:7px}
+.ocard .tags span{font-size:12px;font-weight:700;color:var(--maize-2);background:rgba(255,203,5,.10);border:1px solid rgba(255,203,5,.30);padding:5px 11px;border-radius:999px;white-space:nowrap}
+.ocard .go{margin-top:16px;align-self:flex-start;display:inline-flex;align-items:center;gap:10px;
+  background:var(--maize-fill);color:var(--blue);font-family:var(--varsity);text-transform:uppercase;letter-spacing:.06em;font-weight:700;font-size:14.5px;padding:12px 22px;border-radius:10px;transition:.18s}
+.ocard:hover .go{background:var(--maize-2)}
+.ocard .go .arw{transition:transform .18s}
+.ocard:hover{transform:translateY(-7px);box-shadow:0 40px 66px -26px rgba(0,20,42,.66)}
+.ocard:hover::before{height:15px}.ocard:hover::after{transform:scale(1.5)}.ocard:hover .go .arw{transform:translateX(5px)}
+
+/* SUBNAV (category pages) */
+.subnav{position:sticky;top:0;z-index:20;background:var(--white);border-bottom:1px solid var(--line);box-shadow:0 6px 18px -16px rgba(0,20,42,.5)}
+.subnav .in{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:17px 0}
+.subnav a{font-family:var(--varsity);text-transform:uppercase;letter-spacing:.09em;font-size:16.5px;font-weight:600;color:var(--blue-soft);padding:10px 18px;border-radius:9px;transition:.15s}
+.subnav a:hover{color:var(--blue);background:var(--cream)}
+.subnav a.on{color:var(--blue);background:var(--cream)}
+
+/* SECTIONS */
+section.pad{padding:88px 0}
+section.pad.sm{padding:74px 0}
+/* Cream section background retired (Josh, 2026-08-29: pages read better all white). */
+.alt{background:var(--white)}
+.eyebrow{font-family:var(--varsity);text-transform:uppercase;letter-spacing:.13em;font-size:18px;font-weight:700;color:var(--maize-deep)}
+.lead h2{font-size:clamp(28px,3.6vw,42px);color:var(--blue);margin:12px 0 18px}
+.lead p{font-size:17.5px;color:var(--ink);line-height:1.78;max-width:64ch}
+.sec-h{margin-bottom:30px}
+/* The section label IS the heading now (the big blue subhead was cut, 2026-08-28). It carries
+   more weight than the old kicker did, with a short maize rule giving each section the visual
+   anchor the subhead used to provide. */
+.sec-h h2,.sec-h h2.eyebrow{font-family:var(--varsity);text-transform:uppercase;letter-spacing:.12em;
+  font-size:clamp(25px,3vw,36px);font-weight:700;color:var(--blue);
+  margin:0 0 16px;padding-bottom:13px;position:relative}
+.sec-h h2::after,.sec-h h2.eyebrow::after{content:"";position:absolute;left:0;bottom:0;width:46px;height:3px;
+  background:var(--maize-fill);border-radius:2px}
+.sec-h p{font-size:19px;color:var(--ink);line-height:1.7;max-width:72ch;margin-top:0}
+
+/* prose */
+.prose p{font-size:16.5px;color:var(--ink);line-height:1.8;margin-bottom:16px;max-width:70ch}
+.prose p:first-of-type::first-letter{font-family:var(--serif);font-size:60px;font-weight:700;color:var(--maize-deep);float:left;line-height:.78;padding:8px 14px 0 0}
+
+/* feature bullets */
+.feat{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;margin-top:8px}
+.feat .f{display:flex;gap:14px;align-items:flex-start}
+.feat .f .ic{flex-shrink:0;width:44px;height:44px;border-radius:12px;background:var(--maize-fill);color:var(--blue);display:flex;align-items:center;justify-content:center;font-size:19px;font-weight:700;box-shadow:0 8px 18px -10px rgba(217,158,0,.55)}
+.feat .f b{color:var(--blue);font-size:17px;display:block;margin-bottom:4px}
+.feat .f p{font-size:16.5px;color:var(--ink);line-height:1.62}
+
+/* ── The split band (Josh, 2026-08-29): heading + intro compose the LEFT column, and the
+   feature points live in a contained cream panel on the RIGHT, so the section has one
+   deliberate shape instead of a stranded paragraph over scattered icon rows. ── */
+.split{display:grid;grid-template-columns:5fr 6fr;gap:20px 64px;align-items:center}
+.split .sec-h{display:block;margin-bottom:0}
+.split .sec-h p{max-width:none}
+.split .feat{grid-template-columns:1fr;gap:0;margin:0;background:var(--paper);
+  border:1px solid var(--line);border-radius:18px;padding:12px 30px;
+  box-shadow:0 18px 40px -26px rgba(0,20,42,.35)}
+.split .feat .f{padding:19px 0;border-top:1px solid var(--line);align-items:center}
+.split .feat .f:first-child{border-top:none}
+@media(max-width:900px){.split{grid-template-columns:1fr}.split .feat{padding:8px 22px}}
+
+/* program / offering cards */
+.progs{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+.prog{border:1px solid var(--line);border-top:4px solid var(--maize-fill);border-radius:16px;padding:30px 30px 28px;background:var(--white);transition:.18s;display:flex;flex-direction:column;box-shadow:0 14px 34px -22px rgba(0,20,42,.28)}
+.prog:hover{transform:translateY(-5px);box-shadow:0 24px 46px -24px rgba(0,20,42,.26)}
+.prog .kick{font-family:var(--varsity);text-transform:uppercase;letter-spacing:.12em;font-size:13.5px;font-weight:700;color:var(--maize-deep);margin-bottom:8px}
+.prog h3{color:var(--blue);font-size:26px;margin-bottom:10px}
+/* Subject / AP cards whose whole job is naming a subject: the name is the card, so it gets
+   more size and a maize underline (Josh, 2026-08-28: make the real headings stand out). */
+.progs.subjects .prog h3{font-size:29px;letter-spacing:-.01em;padding-bottom:12px;margin-bottom:14px;border-bottom:3px solid var(--maize-fill)}
+.prog p{font-size:16.5px;color:var(--ink);line-height:1.65;margin-bottom:14px}
+.prog ul{list-style:none;margin:0 0 4px}
+.prog ul li{position:relative;padding:7px 0 7px 22px;font-size:15.5px;color:var(--ink);border-top:1px solid var(--line)}
+.prog ul li:first-child{border-top:none}
+.prog ul li::before{content:"→";position:absolute;left:0;color:var(--maize-deep);font-weight:700}
+.prog .price{margin-top:auto;padding-top:16px;font-family:var(--serif);font-weight:700;color:var(--blue);font-size:19px}
+.prog .price small{font-family:var(--sans);font-weight:600;font-size:12.5px;color:var(--slate);display:block;text-transform:uppercase;letter-spacing:.08em;margin-bottom:1px}
+.prog .broch{margin-top:auto;padding-top:18px;font-family:var(--varsity);text-transform:uppercase;letter-spacing:.07em;font-size:13.5px;font-weight:700;color:var(--blue);text-decoration:none;display:inline-flex;align-items:center;gap:6px}
+.prog .broch:hover{color:var(--maize-deep)}
+
+/* comparison / menu table */
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:16px}
+table.cmp{border-collapse:collapse;width:100%;min-width:620px;font-size:14.5px}
+table.cmp th,table.cmp td{text-align:left;padding:14px 18px;border-bottom:1px solid var(--line);vertical-align:top}
+table.cmp thead th{background:var(--blue);color:#fff;font-family:var(--varsity);text-transform:uppercase;letter-spacing:.06em;font-size:12.5px;font-weight:600;border-bottom:none}
+table.cmp thead th:first-child{border-top-left-radius:16px}
+table.cmp thead th:last-child{border-top-right-radius:16px}
+table.cmp tbody tr:nth-child(even){background:var(--paper)}
+table.cmp td:first-child,table.cmp th:first-child{font-weight:600;color:var(--blue)}
+table.cmp .rowlabel{font-family:var(--varsity);text-transform:uppercase;letter-spacing:.05em;font-size:12px;color:var(--slate);font-weight:600}
+table.cmp tbody tr:last-child td{border-bottom:none}
+
+/* steps */
+.steps{counter-reset:s;display:grid;gap:14px}
+.step{display:flex;gap:18px;align-items:flex-start;background:var(--white);border:1px solid var(--line);border-radius:14px;padding:20px 24px}
+.step .num{counter-increment:s;flex-shrink:0;width:38px;height:38px;border-radius:50%;background:var(--blue);color:var(--maize);font-family:var(--varsity);font-weight:700;display:flex;align-items:center;justify-content:center;font-size:16px}
+.step .num::before{content:counter(s)}
+.step b{color:var(--blue);font-size:17.5px}
+.step p{font-size:15.5px;color:var(--slate);line-height:1.65;margin-top:4px}
+
+/* price cards */
+.prices{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px}
+.pcard{border:1px solid var(--line);border-radius:16px;padding:28px 28px;background:var(--white);display:flex;flex-direction:column}
+.pcard.hl{border:2px solid var(--maize-fill);box-shadow:0 20px 44px -26px rgba(0,20,42,.3)}
+.pcard .tag{font-family:var(--varsity);text-transform:uppercase;letter-spacing:.1em;font-size:11.5px;font-weight:600;color:var(--maize-deep);margin-bottom:8px}
+.pcard h3{color:var(--blue);font-size:21px;margin-bottom:6px}
+.pcard .amt{font-family:var(--serif);font-weight:700;color:var(--blue);font-size:30px;margin:6px 0 12px}
+.pcard .ideal{font-size:14px;color:var(--slate);line-height:1.55;border-top:1px solid var(--line);padding-top:12px}
+
+/* callout / note */
+.callout{background:var(--blue);color:#fff;border-radius:18px;padding:40px 44px}
+.callout .eyebrow{color:var(--maize)}
+.callout h3{color:#fff;font-size:clamp(24px,3vw,32px);margin:12px 0 12px;max-width:24ch}
+.callout p{color:rgba(255,255,255,.82);font-size:16px;line-height:1.7;max-width:60ch}
+/* Five skills, one per line (Josh, 2026-08-28) inside the navy callout. */
+.skills{list-style:none;margin:16px 0 0;padding:0;max-width:60ch}
+.skills li{color:rgba(255,255,255,.82);font-size:16px;line-height:1.6;padding:11px 0 11px 20px;border-top:1px solid rgba(255,255,255,.14);position:relative}
+.skills li:first-child{border-top:none}
+.skills li::before{content:"";position:absolute;left:0;top:19px;width:7px;height:7px;border-radius:50%;background:var(--maize)}
+.skills li b{color:#fff;font-weight:700}
+/* Standalone field/tag row (internships page): the hub's tag styling is scoped to .ocard. */
+.tagrow{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
+.tagrow span{font-family:var(--varsity);text-transform:uppercase;letter-spacing:.07em;font-size:13.5px;font-weight:700;color:var(--blue);background:var(--white);border:1px solid var(--line);border-bottom:3px solid var(--maize-fill);border-radius:10px;padding:9px 14px}
+.note{background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--maize-fill);border-radius:12px;padding:18px 22px;font-size:16.5px;color:var(--ink);line-height:1.65}
+
+/* case studies */
+.cases{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.case{border:1px solid var(--line);border-radius:16px;padding:28px 30px;background:var(--white)}
+.case .who{font-family:var(--varsity);text-transform:uppercase;letter-spacing:.08em;font-size:12px;color:var(--maize-deep);font-weight:600;margin-bottom:8px}
+.case h3{color:var(--blue);font-size:20px;margin-bottom:12px;line-height:1.2}
+.case .blk{margin-bottom:12px}
+.case .blk b{display:block;font-size:12.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--slate);font-family:var(--varsity);font-weight:600;margin-bottom:4px}
+.case .blk p{font-size:14px;color:var(--ink);line-height:1.55}
+.case .out{background:var(--cream);border-radius:10px;padding:12px 14px;font-size:14px;color:var(--blue);font-weight:600}
+
+/* tutor chips */
+.tutors{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.tutor{border:1px solid var(--line);border-radius:14px;padding:22px 24px;background:var(--white)}
+.tutor h4{font-family:var(--serif);color:var(--blue);font-size:17px;margin-bottom:3px}
+.tutor .sub{font-family:var(--varsity);text-transform:uppercase;letter-spacing:.07em;font-size:11.5px;color:var(--maize-deep);font-weight:600;margin-bottom:10px}
+.tutor p{font-size:14px;color:var(--slate);line-height:1.55}
+
+/* CTA book band */
+.book{display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;
+  background:var(--maize-fill);color:var(--blue);border-radius:16px;padding:38px 46px}
+.book h3{font-size:clamp(26px,3.2vw,36px);color:var(--blue)}
+.book .bsub{font-family:var(--sans);font-weight:600;font-size:15px;color:rgba(0,39,76,.72);margin-top:6px}
+.book a{flex-shrink:0;display:inline-flex;align-items:center;gap:10px;background:var(--blue);color:var(--maize);
+  font-family:var(--varsity);text-transform:uppercase;letter-spacing:.07em;font-weight:700;font-size:16px;padding:17px 34px;border-radius:8px;transition:.18s}
+.book a:hover{background:var(--blue-2)}
+
+/* intro grid (hub) */
+.intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+/* 'What is Launch?' stands alone now that the hub's How-it-works card was cut (each service
+   page carries its own). Centered and measure-capped so it reads as a statement, not a
+   half-empty column. */
+.intro-solo{max-width:70ch;margin:0 auto}
+.intro-solo .intro-body p{font-size:17.5px}
+.intro-body p{font-size:17px;color:var(--ink);line-height:1.8;margin-bottom:16px}
+.intro-body p:first-of-type::first-letter{font-family:var(--serif);font-size:62px;font-weight:700;color:var(--maize-deep);float:left;line-height:.78;padding:8px 14px 0 0}
+.whycard{background:var(--white);border:1px solid var(--line);border-top:4px solid var(--maize-fill);border-radius:16px;padding:32px 34px}
+.whycard h3{color:var(--blue);font-size:22px;margin-bottom:18px}
+.whyrow{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-top:1px solid var(--line)}
+.whyrow:first-of-type{border-top:none;padding-top:2px}
+.whyrow .n{flex-shrink:0;width:30px;height:30px;border-radius:50%;background:var(--blue);color:var(--maize);font-family:var(--varsity);font-weight:700;display:flex;align-items:center;justify-content:center;font-size:14px}
+.whyrow .t b{color:var(--blue);font-size:16.5px}
+.whyrow .t p{font-size:15px;color:var(--slate);margin-top:3px;line-height:1.55}
+
+/* FOOTER */
+footer{background:var(--blue);color:rgba(255,255,255,.66);padding:60px 0 40px;font-size:14px}
+.foot{display:flex;justify-content:space-between;gap:36px;flex-wrap:wrap;align-items:flex-start}
+.foot a{color:rgba(255,255,255,.66)}.foot a:hover{color:var(--maize)}
+.foot .brand .svc{font-size:22px}.foot .brand .name{font-size:15px}
+.foot .col b{display:block;color:#fff;font-family:var(--varsity);text-transform:uppercase;letter-spacing:.1em;margin-bottom:13px;font-size:13px}
+.foot .col a{display:block;margin-bottom:9px}
+.fine{margin-top:44px;padding-top:24px;border-top:1px solid rgba(255,255,255,.14);font-size:12.5px;color:rgba(255,255,255,.42)}
+
+@media(max-width:1080px){.offers{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:860px){.offers{grid-template-columns:1fr}.entry{margin-top:0}.hero .wm{width:300px}.feat{grid-template-columns:1fr}}
+@media(max-width:760px){.intro-grid{grid-template-columns:1fr}.heronav .links{display:none}.book{flex-direction:column;align-items:flex-start}.brand .svc{font-size:24px}.brand .name{font-size:15px}.hstats{gap:26px}}
+
+/* Photo bands (Josh, 2026-08-29): imagery lifted from Launch's own brochures. */
+.imgband{position:relative;border-radius:20px;overflow:hidden;box-shadow:0 30px 60px -30px rgba(0,20,42,.5)}
+.imgband img{display:block;width:100%;height:clamp(300px,38vw,460px);object-fit:cover}
+.imgband .cap{position:absolute;left:26px;bottom:22px;background:rgba(0,39,76,.88);color:#fff;
+  font-size:15px;font-weight:600;padding:10px 18px;border-radius:10px;border-left:4px solid var(--maize-fill)}
+
+/* Founder headshots on the internships host-company cards, from Launch's own brochure. */
+.prog .face{width:76px;height:76px;border-radius:50%;object-fit:cover;margin:2px 0 14px;
+  border:3px solid var(--maize-fill);box-shadow:0 10px 22px -12px rgba(0,20,42,.45)}
+
+/* Six founders straight across (Josh, 2026-08-29). Cards slim down to fit; blurbs stay readable
+   down to laptop widths, then the grid steps 3 -> 2 -> 1. */
+.progs.six{grid-template-columns:repeat(6,1fr);gap:16px}
+.progs.six .prog{padding:20px 18px 18px}
+.progs.six .prog h3{font-size:18.5px;min-height:auto}
+.progs.six .prog .kick{font-size:11.5px;letter-spacing:.09em}
+.progs.six .prog p{font-size:13.5px;line-height:1.55}
+.progs.six .face{width:64px;height:64px}
+@media(max-width:1500px){.progs.six{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:900px){.progs.six{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.progs.six{grid-template-columns:1fr}}
+
+/* Hub: What-is-Launch text beside Josh's Law Quad walk photo. */
+.intro-grid2{display:grid;grid-template-columns:7fr 5fr;gap:56px;align-items:center}
+.introimg img{display:block;width:100%;border-radius:20px;box-shadow:0 30px 60px -30px rgba(0,20,42,.5);max-height:520px;object-fit:cover}
+@media(max-width:860px){.intro-grid2{grid-template-columns:1fr}}
+
+/* Seamless full-bleed photo strips (Josh, 2026-08-29: integrate, not cards, no caption chips). */
+.photostrip{line-height:0}
+.photostrip img{display:block;width:100%;height:clamp(460px,62vh,820px);object-fit:cover}
+/* People photos crop from nearer the top so faces stay in frame on wide screens. */
+.photostrip.focus-top img{object-position:50% 24%}
+
+/* Faint imagery behind text sections: the wash is an inset box-shadow spread over the whole
+   element — a single paint layer, replacing the ::before/::after overlays that left glitch
+   bands at section seams on the deployed preview (Josh, 2026-08-29). */
+.bg-faint{background-size:cover;background-position:center;background-repeat:no-repeat;background-color:var(--white);
+  box-shadow:inset 0 0 0 100vmax rgba(255,255,255,.83)}
+.bg-faint.alt{box-shadow:inset 0 0 0 100vmax rgba(244,239,229,.84)}
+.bg-faint.tint{box-shadow:inset 0 0 0 100vmax rgba(226,235,246,.845)}
+.bg-faint.vivid{box-shadow:inset 0 0 0 100vmax rgba(213,226,241,.6)}
+
+/* What-is-Launch as an immersive image section (Josh, 2026-08-29): the quad runs full size with
+   the copy overlaid on the same navy gradient language as the heroes, so it reads as a moment,
+   not a slice. */
+.launch-about{position:relative;background-size:cover;background-position:center 32%;color:#fff;padding:130px 0}
+.launch-about::before{content:"";position:absolute;inset:0;
+  background:linear-gradient(100deg,rgba(0,20,42,.95) 0%,rgba(0,26,52,.88) 50%,rgba(0,39,76,.55) 100%)}
+.launch-about .wrap{position:relative;z-index:1}
+.launch-about .eyebrow{color:var(--maize)}
+.launch-about .la-copy{max-width:66ch}
+/* White-on-navy needs a heavier hand: medium weight, looser leading, tighter measure,
+   and no drop cap fragmenting the first line (Josh, 2026-08-29: hurts to read). */
+.launch-about .la-copy p{font-size:20.5px;font-weight:500;line-height:1.85;color:#fff;margin-top:16px;max-width:56ch;text-shadow:0 1px 14px rgba(0,20,42,.55)}
+
+/* Uniform variant: a flat navy wash instead of the directional gradient, for images whose own
+   light varies too much (Josh, 2026-08-29: Signature's blossoms were dark up top). */
+.launch-about.la-flat::before{background:rgba(0,26,52,.9)}
+
+/* Light callout variant: breaks up runs of navy blocks (Josh, 2026-08-29: three in a row on
+   internships felt like going backwards). */
+.callout.light{background:var(--paper);color:var(--ink);border:1px solid var(--line);
+  border-left:6px solid var(--maize-fill)}
+.callout.light .eyebrow{color:var(--maize-deep)}
+.callout.light p{color:var(--ink)}
+.callout.light .skills li{color:var(--ink);border-top-color:rgba(0,39,76,.12)}
+.callout.light .skills li b{color:var(--blue)}
+
+/* Second-texture variant: the same faint image but under a pale blue wash instead of white,
+   a whisper of navy in the section while keeping ink text fully readable (Josh, 2026-08-29). */
+
+/* Vivid variant: for images that ARE the point (the scantron): much lighter wash, no settle
+   gradient, image clearly recognizable while text stays on the readable side. */
+
+/* Flow between sections (Josh, 2026-08-29): textured sections feather to white at both edges
+   instead of chopping from image to flat color, and their neighbors are white so the fade
+   lands invisibly. */
+.bg-faint{position:relative}
+.bg-faint::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,#fff 0,rgba(255,255,255,0) 60px,
+             rgba(255,255,255,0) calc(100% - 170px),#fff 100%)}
+.bg-faint>.wrap{position:relative}
+/* Canvas content rides above the feather overlay: the fade belongs to the image, never the
+   text (Josh, 2026-08-29: step 6 was washing out at the bottom). */
+.bigtex>section{position:relative}
+
+/* The big canvases can afford a long, luxurious dissolve; the short top textures keep a tight
+   feather so their text never sits in fog. */
+.bigtex::before{background:linear-gradient(180deg,#fff 0,rgba(255,255,255,0) 240px,
+  rgba(255,255,255,0) calc(100% - 240px),#fff 100%)}
+
+/* Icon tiles retired (Josh, 2026-08-29): the glyphs were generic filler. Feature rows are
+   text-first; titles + hairlines carry the structure. */
+.feat .f .ic{display:none}
+
+/* The maize border vibe (Josh, 2026-08-29): panels take the card language's maize top edge,
+   loose feature rows take a maize left tick where the icon tiles used to anchor them. */
+.split .feat{border-top:4px solid var(--maize-fill)}
+.feat:not(.split .feat) .f{border-left:3px solid var(--maize-fill);padding-left:16px}
