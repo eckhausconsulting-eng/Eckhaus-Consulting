@@ -280,14 +280,14 @@ footer{background:var(--blue);color:rgba(255,255,255,.66);padding:60px 0 40px;fo
 /* People photos crop from nearer the top so faces stay in frame on wide screens. */
 .photostrip.focus-top img{object-position:50% 24%}
 
-/* Faint imagery behind text sections (Josh, 2026-08-29): the photo sits under a near-opaque
-   wash so the writing keeps full contrast and the page gains depth. */
-.bg-faint{position:relative;background-size:cover;background-position:center}
-.bg-faint::before{content:"";position:absolute;inset:0;background:var(--bgf,rgba(255,255,255,.83))}
-.bg-faint.alt{--bgf:rgba(244,239,229,.84)}
-/* the photo behind fades further down the section so content lower on the page stays clean */
-.bg-faint::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 0%,var(--bgf,rgba(255,255,255,.83)) 82%)}
-.bg-faint>.wrap{position:relative;z-index:1}
+/* Faint imagery behind text sections: the wash is an inset box-shadow spread over the whole
+   element — a single paint layer, replacing the ::before/::after overlays that left glitch
+   bands at section seams on the deployed preview (Josh, 2026-08-29). */
+.bg-faint{background-size:cover;background-position:center;
+  box-shadow:inset 0 0 0 100vmax rgba(255,255,255,.83)}
+.bg-faint.alt{box-shadow:inset 0 0 0 100vmax rgba(244,239,229,.84)}
+.bg-faint.tint{box-shadow:inset 0 0 0 100vmax rgba(226,235,246,.86)}
+.bg-faint.vivid{box-shadow:inset 0 0 0 100vmax rgba(255,255,255,.72)}
 
 /* What-is-Launch as an immersive image section (Josh, 2026-08-29): the quad runs full size with
    the copy overlaid on the same navy gradient language as the heroes, so it reads as a moment,
@@ -317,9 +317,6 @@ footer{background:var(--blue);color:rgba(255,255,255,.66);padding:60px 0 40px;fo
 
 /* Second-texture variant: the same faint image but under a pale blue wash instead of white,
    a whisper of navy in the section while keeping ink text fully readable (Josh, 2026-08-29). */
-.bg-faint.tint{--bgf:rgba(226,235,246,.86)}
 
 /* Vivid variant: for images that ARE the point (the scantron): much lighter wash, no settle
    gradient, image clearly recognizable while text stays on the readable side. */
-.bg-faint.vivid{--bgf:rgba(255,255,255,.72)}
-.bg-faint.vivid::after{display:none}
