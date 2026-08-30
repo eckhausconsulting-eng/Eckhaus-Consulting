@@ -283,10 +283,10 @@ footer{background:var(--blue);color:rgba(255,255,255,.66);padding:60px 0 40px;fo
 /* Faint imagery behind text sections (Josh, 2026-08-29): the photo sits under a near-opaque
    wash so the writing keeps full contrast and the page gains depth. */
 .bg-faint{position:relative;background-size:cover;background-position:center}
-.bg-faint::before{content:"";position:absolute;inset:0;background:var(--bgf,rgba(255,255,255,.87))}
-.bg-faint.alt{--bgf:rgba(244,239,229,.88)}
+.bg-faint::before{content:"";position:absolute;inset:0;background:var(--bgf,rgba(255,255,255,.83))}
+.bg-faint.alt{--bgf:rgba(244,239,229,.84)}
 /* the photo behind fades further down the section so content lower on the page stays clean */
-.bg-faint::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 0%,var(--bgf,rgba(255,255,255,.87)) 82%)}
+.bg-faint::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 0%,var(--bgf,rgba(255,255,255,.83)) 82%)}
 .bg-faint>.wrap{position:relative;z-index:1}
 
 /* What-is-Launch as an immersive image section (Josh, 2026-08-29): the quad runs full size with
@@ -317,7 +317,7 @@ footer{background:var(--blue);color:rgba(255,255,255,.66);padding:60px 0 40px;fo
 
 /* Second-texture variant: the same faint image but under a pale blue wash instead of white,
    a whisper of navy in the section while keeping ink text fully readable (Josh, 2026-08-29). */
-.bg-faint.tint{--bgf:rgba(226,235,246,.9)}
+.bg-faint.tint{--bgf:rgba(226,235,246,.86)}
 
 /* Vivid variant: for images that ARE the point (the scantron): much lighter wash, no settle
    gradient, image clearly recognizable while text stays on the readable side. */
