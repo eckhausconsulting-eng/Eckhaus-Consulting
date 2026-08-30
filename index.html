@@ -153,6 +153,8 @@
   .bgtex::before{content:"";position:absolute;inset:0;pointer-events:none;
     background:linear-gradient(180deg,#fff 0,rgba(255,255,255,0) 60px,rgba(255,255,255,0) calc(100% - 170px),#fff 100%)}
   .bgtex>.wrap{position:relative}
+  .bigzone::before{background:linear-gradient(180deg,#fff 0,rgba(255,255,255,0) 240px,rgba(255,255,255,0) calc(100% - 240px),#fff 100%)}
+  .bigzone>section{position:relative}
   .newsgrid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--white)}
   .panel{padding:34px 36px}
   .panel + .panel{border-left:1px solid var(--line)}
@@ -285,6 +287,7 @@
   </div>
 </div></section>
 
+<div class="bgtex tint bigzone" style="background-image:url('launch/img/berry-pool.jpg')">
 <section class="pad results" id="results"><div class="wrap">
   <div class="eyebrow" style="text-align:center">Classes of 2024–2026</div>
   <h2>Where students have landed</h2>
@@ -296,7 +299,7 @@
 </div></section>
 
 
-<section class="pad newswrap bgtex tint" id="news" style="background-image:url('launch/img/berry-pool.jpg')"><div class="wrap">
+<section class="pad newswrap" id="news"><div class="wrap">
   <div class="lead"><h2>News &amp; key dates</h2></div>
   <div class="newsgrid">
     <div class="panel">
@@ -324,6 +327,7 @@
     </div>
   </div>
 </div></section>
+</div>
 
 <section class="pad"><div class="wrap">
   <div class="lead"><h2>From the blog</h2><a class="sublabel" href="/blog/">All posts →</a></div>
