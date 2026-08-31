@@ -347,3 +347,10 @@ footer{background:var(--blue);color:rgba(255,255,255,.66);padding:60px 0 40px;fo
    loose feature rows take a maize left tick where the icon tiles used to anchor them. */
 .split .feat{border-top:4px solid var(--maize-fill)}
 .feat:not(.split .feat) .f{border-left:3px solid var(--maize-fill);padding-left:16px}
+
+/* Homepage login pill, for the now-unified top nav (2026-08-31) */
+.hero .links .loginbtn{display:inline-flex;align-items:center;gap:7px;white-space:nowrap;flex-shrink:0;
+  background:var(--maize-fill);color:var(--blue)!important;font-weight:700;border-radius:9px;
+  padding:9px 16px;margin-left:4px}
+.hero .links .loginbtn:hover{background:var(--maize)}
+.hero .links .loginbtn .arw{font-size:15px}
