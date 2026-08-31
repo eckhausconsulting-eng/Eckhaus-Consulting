@@ -137,8 +137,7 @@
 
   /* ABOUT */
   .about{background:var(--white)}
-  .about-grid{display:grid;grid-template-columns:1fr;gap:68px;align-items:center}
-  .about-body{max-width:72ch}
+  .about-grid{max-width:72ch;margin:0 auto}  /* photo era: 330px 1fr grid; restore with the portrait */
   .frame{position:relative}
   .frame::after{content:"";position:absolute;inset:16px -16px -16px 16px;border:3px solid var(--maize-fill);border-radius:50%;z-index:0}
   .portrait{position:relative;z-index:1;aspect-ratio:1;border-radius:50%;background:linear-gradient(160deg,#dfe4ec,#c6cddb);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:#8a97ad;font-size:13px;font-style:italic;overflow:hidden}
